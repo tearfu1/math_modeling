@@ -1,16 +1,21 @@
-a=int(input("a= "))
-b=int(input("b= "))
-c=int(input("c= "))
+import numpy as np
 
-if (a+b > c and a+c > b and b+c > a):
-    print ("est'")
-    if a==b==c:
-        print('равносторонний')
-    elif a==b or a==c or b==c:
-        print('равнобедренный')
+def fib(n):
+    a=0
+    b=1
+    fn=0
+    if n == 0:
+        return 0
+    elif n > 0:
+        for i in np.arange(2,n,1):
+            fn = a+b
+            a = b
+            b = fn
+        return(fn)
     else:
-        print('никакой')
-else:
-    print('net')
-
-    
+        for i in np.arange(n,-2,1):
+            fn = a-b
+            a = b
+            b = fn
+        return(fn)
+print(fib(-7))
